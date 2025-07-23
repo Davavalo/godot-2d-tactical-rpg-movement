@@ -139,3 +139,9 @@ func _on_Cursor_accept_pressed(cell: Vector2) -> void:
 func _on_Cursor_moved(new_cell: Vector2) -> void:
 	if _active_unit and _active_unit.is_selected:
 		_unit_path.draw(_active_unit.cell, new_cell)
+		
+func _draw() -> void:
+	for x in range(int(grid.size.x)):
+		for y in range(int(grid.size.y)):
+			var pos = Vector2(x, y) * grid.cell_size
+			draw_rect(Rect2(pos, grid.cell_size), Color(100, 0, 0, 0.2), false)
